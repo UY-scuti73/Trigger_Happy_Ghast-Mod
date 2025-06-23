@@ -1,0 +1,29 @@
+{
+  "minecraft:recipes/decorations/snow": {
+    "criteria": {
+      "has_snowball": "2025-06-23 14:43:05 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-06-23 14:43:05 -0400"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:forest": "2025-06-23 14:43:05 -0400",
+      "minecraft:river": "2025-06-23 14:43:17 -0400",
+      "minecraft:plains": "2025-06-23 14:43:20 -0400"
+    },
+    "done": false
+  },
+  "minecraft:recipes/building_blocks/snow_block": {
+    "criteria": {
+      "has_snowball": "2025-06-23 14:43:05 -0400"
+    },
+    "done": true
+  },
+  "DataVersion": 4435
+}

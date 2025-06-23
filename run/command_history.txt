@@ -1,0 +1,14 @@
+/time set day
+/gamerule doDaylightCycle false
+/time set day
+/give Player888 minecraft:snowball
+/weather rain
+/give Player558 minecraft:warped_fungus_on_a_stick
+/give Player387 minecraft:warped_fungus_on_a_stick
+/give Player361 minecraft:warped_fungus_on_a_stick
+/tp Player908 1 1 1 end
+/locate structure minecraft:stronghold
+/tp @s 16 ~ -4992
+/summon minecraft:happy_ghast
+/give Player908 minecraft:warped_fungus_on_a_stick
+/summon minecraft:happy_ghast

@@ -15,8 +15,6 @@ import xyz.quazaros.ghastfire.Config.ConfigManager;
 
 public class FireClass {
     public static boolean fire(PlayerEntity player, ItemStack itemStack) {
-        int durCnt = 5;
-
         //Fireball Logic
 
         if (itemStack.getItem() != Items.WARPED_FUNGUS_ON_A_STICK) {return false;}
@@ -32,10 +30,13 @@ public class FireClass {
 
         //Fireball Action
 
+        int explosionValue = ConfigManager.get().explosionValue;
+        int durCnt = ConfigManager.get().durabilityDamageValue;
+
         Vec3d direction = player.getRotationVector();
         Vec3d position = player.getEntityPos();
 
-        FireballEntity fireball = new FireballEntity(player.getEntityWorld(), player, direction, FireClass.getExplosionPower());
+        FireballEntity fireball = new FireballEntity(player.getEntityWorld(), player, direction, explosionValue);
         fireball.setPosition(position.x, position.y - 3, position.z);
 
         player.getEntityWorld().spawnEntity(fireball);
@@ -45,9 +46,5 @@ public class FireClass {
         player.getEntityWorld().playSound(null, player.getX(), player.getY(), player.getZ(),SoundEvents.ENTITY_GHAST_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
         return true;
-    }
-
-    private static int getExplosionPower() {
-        return ConfigManager.get().explosionValue;
     }
 }

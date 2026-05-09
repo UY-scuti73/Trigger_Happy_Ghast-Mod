@@ -3,19 +3,20 @@ package xyz.quazaros.ghastfire.Events;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.entity.projectile.hurtingprojectile.LargeFireball;
+
 import xyz.quazaros.ghastfire.Config.ConfigManager;
 
 public class FireClass {
 
     public static boolean fire(Player player, ItemStack itemStack) {
-        int durCnt = 5;
-
         if (itemStack.getItem() != Items.WARPED_FUNGUS_ON_A_STICK) return false;
         if (!(player instanceof ServerPlayer sp)) return false;
         if (sp.level().isClientSide()) return false;
@@ -23,29 +24,27 @@ public class FireClass {
         Entity riding = sp.getVehicle();
         if (riding == null) return false;
 
-        // Keep your “must be the controlling passenger” intent
+        // Confirms the player is the driver
         if (riding.getPassengers().isEmpty()) return false;
         if (riding.getPassengers().getFirst() != sp) return false;
 
-        // Direction/position in Mojang mappings
+        int explosionValue = ConfigManager.get().explosionValue;
+        int durCnt = ConfigManager.get().durabilityDamageValue;
+
+        // Direction/position
         Vec3 direction = sp.getLookAngle();
-        Vec3 pos = sp.position();
+        Vec3 position = sp.position();
 
-        // ---- Projectile spawn (needs the *actual* class name available in your 26.1 sources) ----
-        // Example possibilities (ONLY ONE will exist):
-        // - net.minecraft.world.entity.projectile.LargeFireball
-        // - net.minecraft.world.entity.projectile.Fireball
-        // - another subclass used by ghasts
-        //
-        // Once you tell me which exists, we’ll instantiate it here and call:
-        // sp.level().addFreshEntity(projectile);
-        //
-        // ---------------------------------------------------------------------------------------
+        LargeFireball fireball = new LargeFireball(player.level(), player, direction, explosionValue);
+        fireball.setPos(position.x, position.y - 3, position.z);
+        sp.level().addFreshEntity(fireball);
 
-        // Damage the item (26.1 Mojang method)
-        itemStack.hurtAndBreak(durCnt, (LivingEntity) player, hand);
+        // Damage the item
+        //InteractionHand hand = player.getUsedItemHand();
+        EquipmentSlot hand = EquipmentSlot.MAINHAND;
+        itemStack.hurtAndBreak(durCnt, player, hand);
 
-        // Play sound (Mojang names)
+        // Play sound
         sp.level().playSound(
                 null,
                 sp.getX(), sp.getY(), sp.getZ(),
@@ -55,9 +54,5 @@ public class FireClass {
         );
 
         return true;
-    }
-
-    private static int getExplosionPower() {
-        return ConfigManager.get().explosionValue;
     }
 }

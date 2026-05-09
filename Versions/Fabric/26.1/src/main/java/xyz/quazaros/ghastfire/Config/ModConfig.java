@@ -2,6 +2,7 @@ package xyz.quazaros.ghastfire.Config;
 
 public class ModConfig {
     public int explosionValue = 1;
+    public int durabilityDamageValue = 5;
 
     public void validate() {
         if (explosionValue < 0) explosionValue = 0;

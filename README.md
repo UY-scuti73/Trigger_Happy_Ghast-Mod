@@ -12,6 +12,8 @@ Servers only require the mod to be installed on the server, players don't need t
 ## Config
 There is a config file to change the explosion damage done by shot fireball. It is set to 1 (normal ghast firebal) by default. Setting it to 0 will damage entities if hit, but not damage any blocks.
 
+You can also control the amount of durability the warped_fungus_on_a_stick will use.
+
 ## Discord
 Join The Discord: [Link](https://discord.gg/zHzFgWX8KW)
 

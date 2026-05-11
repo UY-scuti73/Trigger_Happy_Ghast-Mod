@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "ghastfire73",
+  "id": "${mod_id}",
   "version": "${version}",
-  "name": "TriggerHappyGhast",
-  "description": "Allows The Happy Ghast To Shoot Fireballs",
-  "authors": ["Bowser_The_Boss"],
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [ "${mod_authors}" ],
   "contact": {},
-  "license": "All-Rights-Reserved",
-  "icon": "assets/ghastfire73/icon.png",
+  "license": "${mod_license}",
+  "icon": "pack.png",
   "entrypoints": {
     "fabric-datagen": [
       "xyz.quazaros.ghastfire.client.GhastFireDataGenerator"

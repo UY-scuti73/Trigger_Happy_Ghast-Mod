@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [ "${mod_authors}" ],
+  "contact": {},
+  "license": "${mod_license}",
+  "icon": "pack.png",
+  "entrypoints": {
+    "fabric-datagen": [
+      "xyz.quazaros.ghastfire.client.GhastFireDataGenerator"
+    ],
+    "main": [
+      "xyz.quazaros.ghastfire.GhastFire"
+    ]
+  },
+  "mixins": [
+    "ghastfire73.mixins.json",
+    {
+      "config": "ghastfire73.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

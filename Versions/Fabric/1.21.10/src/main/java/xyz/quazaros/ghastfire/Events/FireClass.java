@@ -23,15 +23,15 @@ public class FireClass {
         if (!(ridingMob instanceof HappyGhastEntity)) {return false;}
 
         if (ridingMob.getPassengerList().isEmpty()) {return false;}
-        if (!ridingMob.getPassengerList().getFirst().equals(player)) {return false;}
+        if (!ridingMob.getPassengerList().get(0).equals(player)) {return false;}
 
         if (!(player instanceof ServerPlayerEntity)) {return false;}
         if (player.getEntityWorld().isClient()) {return false;}
 
         //Fireball Action
 
-        int explosionValue = ConfigManager.get().explosionValue;
-        int durCnt = ConfigManager.get().durabilityDamageValue;
+        int explosionValue = ConfigManager.get().explosion_damage;
+        int durCnt = ConfigManager.get().durability_damage;
 
         Vec3d direction = player.getRotationVector();
         Vec3d position = player.getEntityPos();

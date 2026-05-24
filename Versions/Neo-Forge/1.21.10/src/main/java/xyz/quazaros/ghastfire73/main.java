@@ -5,8 +5,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.slf4j.Logger;
 import xyz.quazaros.ghastfire73.Config.ConfigManager;
+import xyz.quazaros.ghastfire73.Config.ModConfigScreen;
 
 @Mod(main.MOD_ID)
 public class main {
@@ -16,6 +18,9 @@ public class main {
 
     public main(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::setup);
+
+        modContainer.registerExtensionPoint(IConfigScreenFactory.class,
+                (minecraft, parent) -> new ModConfigScreen(parent));
     }
 
     private void setup(FMLCommonSetupEvent event) {

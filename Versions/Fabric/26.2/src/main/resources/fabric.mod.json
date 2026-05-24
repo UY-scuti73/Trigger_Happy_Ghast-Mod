@@ -14,7 +14,14 @@
     ],
     "main": [
       "xyz.quazaros.ghastfire.GhastFire"
+    ],
+    "client": [
+      "xyz.quazaros.ghastfire.client.GhastFire73Client"
+    ],
+    "modmenu": [
+      "xyz.quazaros.ghastfire.client.configScreen.GhastFire73ModMenu"
     ]
+
   },
   "mixins": [
     "ghastfire73.mixins.json",

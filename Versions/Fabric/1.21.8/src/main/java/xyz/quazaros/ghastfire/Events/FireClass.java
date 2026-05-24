@@ -30,8 +30,8 @@ public class FireClass {
 
         //Fireball Action
 
-        int explosionValue = ConfigManager.get().explosionValue;
-        int durCnt = ConfigManager.get().durabilityDamageValue;
+        int explosionValue = ConfigManager.get().explosion_damage;
+        int durCnt = ConfigManager.get().durability_damage;
 
         Vec3d direction = player.getRotationVector();
         Vec3d position = player.getPos();

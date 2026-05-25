@@ -12,6 +12,8 @@ authors = "${mod_authors}"
 description = '''${mod_description}'''
 displayTest = "IGNORE_ALL_VERSION"
 
+displayURL = "${version_control}"
+
 [[mixins]]
 config = "${mod_id}.mixins.json"
 

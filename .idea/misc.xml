@@ -6,10 +6,12 @@
     <file type="web" url="file://$PROJECT_DIR$/Versions/Fabric/1.21.11" />
     <file type="web" url="file://$PROJECT_DIR$/Versions/Fabric/1.21.8" />
     <file type="web" url="file://$PROJECT_DIR$/Versions/Fabric/26.1" />
+    <file type="web" url="file://$PROJECT_DIR$/Versions/Fabric/26.2" />
     <file type="web" url="file://$PROJECT_DIR$/Versions/Neo-Forge/1.21.10" />
     <file type="web" url="file://$PROJECT_DIR$/Versions/Neo-Forge/1.21.11" />
     <file type="web" url="file://$PROJECT_DIR$/Versions/Neo-Forge/1.21.8" />
     <file type="web" url="file://$PROJECT_DIR$/Versions/Neo-Forge/26.1" />
+    <file type="web" url="file://$PROJECT_DIR$/Versions/Neo-Forge/26.2" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_22" project-jdk-name="22" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

@@ -5,10 +5,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 import xyz.quazaros.ghastfire73.Config.ConfigManager;
-import xyz.quazaros.ghastfire73.Config.ModConfigScreen;
+import xyz.quazaros.ghastfire73.client.clientInitialization;
 
 @Mod(main.MOD_ID)
 public class main {
@@ -19,8 +19,9 @@ public class main {
     public main(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::setup);
 
-        modContainer.registerExtensionPoint(IConfigScreenFactory.class,
-                (minecraft, parent) -> new ModConfigScreen(parent));
+        if(FMLEnvironment.dist.isClient()) {
+            clientInitialization.init_client(modContainer);
+        }
     }
 
     private void setup(FMLCommonSetupEvent event) {
